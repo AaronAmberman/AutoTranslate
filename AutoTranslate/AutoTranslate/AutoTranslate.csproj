@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Version>1.0.0.0</Version>
+    <Description>Automatically translate string resources files into other languages.</Description>
+    <Copyright>Aaron Amberman 2022</Copyright>
+    <PackageProjectUrl>https://github.com/AaronAmberman/AutoTranslate</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/AaronAmberman/AutoTranslate</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>../../LICENSE</PackageLicenseFile>
+    <ApplicationIcon>Images\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\AutoTranslateIcon.psd" />
+    <None Remove="Images\Icon.ico" />
+    <None Remove="Images\Icon128x128.png" />
+    <None Remove="Images\Icon16x16.png" />
+    <None Remove="Images\Icon24x24.png" />
+    <None Remove="Images\Icon32x32.png" />
+    <None Remove="Images\Icon48x48.png" />
+    <None Remove="Images\Icon64x64.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="WPF.CustomControls">
+      <HintPath>..\dependencies\WPF.CustomControls\WPF.CustomControls.dll</HintPath>
+    </Reference>
+    <Reference Include="WPF.InternalDialogs">
+      <HintPath>..\dependencies\WPF.InternalDialogs\WPF.InternalDialogs.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icon.ico" />
+    <Resource Include="Images\Icon128x128.png" />
+    <Resource Include="Images\Icon16x16.png" />
+    <Resource Include="Images\Icon24x24.png" />
+    <Resource Include="Images\Icon32x32.png" />
+    <Resource Include="Images\Icon48x48.png" />
+    <Resource Include="Images\Icon64x64.png" />
+  </ItemGroup>
+
+</Project>
