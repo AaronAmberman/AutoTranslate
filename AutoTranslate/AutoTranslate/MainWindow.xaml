@@ -5,11 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoTranslate"
         xmlns:properties="clr-namespace:AutoTranslate.Properties"
+        xmlns:viewModel="clr-namespace:AutoTranslate.ViewModels"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance {x:Type viewModel:MainWindowViewModel}}"
         Title="{x:Static properties:Strings.WindowTitle}" 
         Height="768" Width="1024" WindowStartupLocation="CenterScreen"
-        Icon="pack://application:,,,/Images/Icon.ico">
-    <Grid>
-
+        Icon="pack://application:,,,/Images/Icon.ico"
+        Loaded="Window_Loaded" Closing="Window_Closing" Closed="Window_Closed">
+    <Grid  x:Name="mainGrid" Style="{StaticResource DarkThemeGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="toolBarGrid" Grid.Row="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="2" Margin="0,0,5,0" TabIndex="1" Style="{StaticResource ToolBarButton}" Content="{StaticResource Settings}" 
+                    Command="{Binding ShowSettingsCommand}" ToolTip="{x:Static properties:Strings.Settings}" />
+            <Button Grid.Column="3" TabIndex="2" Style="{StaticResource ToolBarButton}" Content="{StaticResource QuestionMark}"
+                    Command="{Binding AboutCommand}" ToolTip="{x:Static properties:Strings.About}" />
+        </Grid>
+        <Grid x:Name="innerMainGrid" Grid.Row="1" Margin="5">
+            <Grid>
+                
+            </Grid>
+            <Border Background="#33000000" BorderBrush="Transparent" BorderThickness="0" 
+                    KeyboardNavigation.TabNavigation="Cycle"
+                    Visibility="{Binding DataNeededVisibility}">
+                <Border BorderBrush="White" BorderThickness="3" CornerRadius="10" Padding="10"
+                        VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Width="128" Height="128" RenderOptions.BitmapScalingMode="HighQuality"
+                               Source="pack://application:,,,/Images/Icon128x128.png" />
+                        <Grid Grid.Column="1" Margin="5,0,0,0" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontSize="36" HorizontalAlignment="Center"
+                                       Text="{x:Static properties:Strings.DataTitle}" Style="{StaticResource DarkThemeTextBlockStyle}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Margin="0,25,0,0"
+                                       Text="{x:Static properties:Strings.ResourceFile}" Style="{StaticResource DarkThemeTextBlockStyle}" />
+                            <TextBox x:Name="vtsFileTextBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="5,25,5,0" Width="600" IsReadOnly="True" TabIndex="3"
+                                     Text="{Binding FileForData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Button x:Name="browseForFile" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="0,24,0,0" TabIndex="4"
+                                    Content="{x:Static properties:Strings.Browse}" Command="{Binding BrowseCommand}" />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

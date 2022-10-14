@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="BrowseTitle" xml:space="preserve">
+    <value>Open File</value>
+  </data>
+  <data name="DataTitle" xml:space="preserve">
+    <value>Select Resource File</value>
+  </data>
+  <data name="ResourceFile" xml:space="preserve">
+    <value>Resource file</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="WindowTitle" xml:space="preserve">
     <value>Auto Translate</value>
   </data>
