@@ -6,3 +6,7 @@ This application aims to use several translation providers to provide the easies
 
 ## Usage
 This application aims to keep is self free and MIT licensed. The various translations providers will need credentials so we recommend deploying your own LibreTranslate instance and connecting to that for free.
+
+## Translations Providers
+[LibreTranslate GitHub](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/).
+[AWS Translate](https://aws.amazon.com/translate/) but you will need an AWS account.
