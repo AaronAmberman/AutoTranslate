@@ -9,4 +9,5 @@ This application aims to keep is self free and MIT licensed. The various transla
 
 ## Translations Providers
 [LibreTranslate GitHub](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/).
+
 [AWS Translate](https://aws.amazon.com/translate/) but you will need an AWS account.
