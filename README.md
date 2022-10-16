@@ -2,7 +2,12 @@
 Automatically translate string resources files into other languages.
 
 ## The Power
-The driving force behind making this desktop application work is [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/). Check GitHub link for additional mirrors.
+This application aims to use several translation providers to provide the easiest experience possible. [LibreTranslate GitHub](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/) is one of the providers (buy an API key or deploy your own server (see GitHub for how to do that)). Additionally AWS Translate can be used as a provider but you will need your own credentials. Other providers will be added in the future.
 
 ## Usage
-This application aims to keep is self free and MIT licensed. Translation services are a real world need and occupation so this may become challenging as time goes on. For now we will rely on the above public website (or rather all the available mirrors) to try to keep this working. There are ways for you to deploy LibreTranslate to your own server so the application will allow you to set which LibreTranslation URL you are interacting with. However, the provided URL **must** point LibreTranslate server or things won't work correctly.
+This application aims to keep is self free and MIT licensed. The various translations providers will need credentials so we recommend deploying your own LibreTranslate instance and connecting to that for free.
+
+## Translation Providers
+[LibreTranslate GitHub](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/).
+
+[AWS Translate](https://aws.amazon.com/translate/) but you will need an AWS account.
