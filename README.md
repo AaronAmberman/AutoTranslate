@@ -1,4 +1,6 @@
 # AutoTranslate
+Work in progress...very early alpha. 
+
 Automatically translate string resources files into other languages.
 
 ## The Power
