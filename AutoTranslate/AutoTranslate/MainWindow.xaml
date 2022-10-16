@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AutoTranslate"
         xmlns:properties="clr-namespace:AutoTranslate.Properties"
         xmlns:viewModel="clr-namespace:AutoTranslate.ViewModels"
+        xmlns:id="clr-namespace:WPF.InternalDialogs;assembly=WPF.InternalDialogs"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance {x:Type viewModel:MainWindowViewModel}}"
         Title="{x:Static properties:Strings.WindowTitle}" 
@@ -25,16 +26,125 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="2" Margin="0,0,5,0" TabIndex="1" Style="{StaticResource ToolBarButton}" Content="{StaticResource Settings}" 
+            <Button Grid.Column="0" Margin="0,0,5,0" TabIndex="1" Style="{StaticResource ToolBarButton}" Content="{StaticResource Settings}" 
                     Command="{Binding ShowSettingsCommand}" ToolTip="{x:Static properties:Strings.Settings}" />
-            <Button Grid.Column="3" TabIndex="2" Style="{StaticResource ToolBarButton}" Content="{StaticResource QuestionMark}"
+            <Button Grid.Column="1" Margin="0,0,5,0" TabIndex="2" Style="{StaticResource ToolBarButton}" Content="{StaticResource QuestionMark}"
                     Command="{Binding AboutCommand}" ToolTip="{x:Static properties:Strings.About}" />
+            <Button Grid.Column="2" TabIndex="2" Content="{StaticResource Folder}"
+                    Command="{Binding BrowseCommand}" ToolTip="{x:Static properties:Strings.BrowseTitle}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource ToolBarButton}">
+                        <Setter Property="IsEnabled" Value="False" />
+                        <Setter Property="Opacity" Value="0.25" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding DataNeededVisibility}" Value="Collapsed">
+                                <Setter Property="IsEnabled" Value="True" />
+                                <Setter Property="Opacity" Value="0.8" />
+                            </DataTrigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
         <Grid x:Name="innerMainGrid" Grid.Row="1" Margin="5">
             <Grid>
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Margin="0,0,5,0" Style="{StaticResource DarkThemeTextBlockStyle}" 
+                               Text="{x:Static properties:Strings.ReferenecedFile}" />
+                    <TextBox Grid.Column="1" Foreground="White" IsReadOnly="True" Text="{Binding FileForData}" />
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1" Margin="0,0,5,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="terms" Grid.Row="0" ItemsSource="{Binding Data}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="{x:Static properties:Strings.Name}" DisplayMemberBinding="{Binding Key}"
+                                                Width="{Binding ElementName=terms, Path=ActualWidth, 
+                                                                Converter={StaticResource ArithmeticConverter}, ConverterParameter=/2|-25}" />
+                                <GridViewColumn Header="{x:Static properties:Strings.Value}"
+                                                Width="{Binding ElementName=terms, Path=ActualWidth, 
+                                                                Converter={StaticResource ArithmeticConverter}, ConverterParameter=/2|-25}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Value}" TextWrapping="Wrap" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBlock Grid.Row="1" Margin="0,5,0,0" Style="{StaticResource DarkThemeTextBlockStyle}"
+                               Text="{Binding ElementName=terms, Path=Items.Count, StringFormat=Number of terms: {0}}" />
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1" Margin="5,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Style="{StaticResource DarkThemeTextBlockStyle}" Text="{x:Static properties:Strings.CurrentCulture}" />
+                        <TextBlock Grid.Column="1" Margin="5,0,0,0" Style="{StaticResource DarkThemeTextBlockStyle}" Text="{Binding CurrentCulture}" />
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="0,5,0,0">
+                        <ComboBox>
+                            <ComboBoxItem Content="LibreTranslate" />
+                            <ComboBoxItem Content="AWS Translate" />
+                        </ComboBox>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0,5,0,0">
+                        <!--
+                            user interfaces specific to the data providers needs to be added here
+                        -->
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <ListBox Margin="0,5,0,0" ItemsSource="{Binding SupportedLanguages}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel IsItemsHost="True" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox Content="{Binding Language}" IsChecked="{Binding IsSelected}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                    <Grid Grid.Row="4" Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Content="{x:Static properties:Strings.Translate}" />
+                    </Grid>
+                </Grid>
             </Grid>
-            <Border Background="#33000000" BorderBrush="Transparent" BorderThickness="0" 
+            <Border Background="#CC000000" BorderBrush="Transparent" BorderThickness="0" 
                     KeyboardNavigation.TabNavigation="Cycle"
                     Visibility="{Binding DataNeededVisibility}">
                 <Border BorderBrush="White" BorderThickness="3" CornerRadius="10" Padding="10"
@@ -44,8 +154,10 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Width="128" Height="128" RenderOptions.BitmapScalingMode="HighQuality"
+                        <Border Grid.Column="0" Background="#FF3F3F3F">
+                            <Image Width="128" Height="128" RenderOptions.BitmapScalingMode="HighQuality"
                                Source="pack://application:,,,/Images/Icon128x128.png" />
+                        </Border>
                         <Grid Grid.Column="1" Margin="5,0,0,0" VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -69,5 +181,90 @@
                 </Border>
             </Border>
         </Grid>
+        <id:MovableResizableInternalDialog x:Name="settingsDialog" Grid.Row="0" Grid.RowSpan="2"
+                                           ResizableMinHeight="256" ResizableMinWidth="512" ResizableMaxHeight="512" ResizableMaxWidth="768"
+                                           TitleContent="{x:Static properties:Strings.Settings}" Foreground="White" CloseOnEscape="False"
+                                           TitleAreaBackground="#FF101010" AnswerAreaBackground="#FF2F2F2F" ContentBackground="#FF3F3F3F"
+                                           Visibility="{Binding SettingsViewModel.Visibility}"
+                                           Result="{Binding SettingsViewModel.Result, Mode=OneWayToSource}"
+                                           FocusParent="{Binding ElementName=mainGrid}">
+            <id:MovableResizableInternalDialog.CloseButtonStyle>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </id:MovableResizableInternalDialog.CloseButtonStyle>
+            <Grid>
+
+            </Grid>
+            <id:MovableResizableInternalDialog.AnswerAreaContent>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Content="{x:Static properties:Strings.OK}" Margin="0,0,5,0" MinWidth="50"
+                            Command="{Binding SettingsViewModel.OkCommand}" />
+                    <Button Grid.Column="2" Content="{x:Static properties:Strings.Cancel}" MinWidth="50"
+                            Command="{Binding SettingsViewModel.CancelCommand}" />
+                </Grid>
+            </id:MovableResizableInternalDialog.AnswerAreaContent>
+        </id:MovableResizableInternalDialog>
+        <id:MovableResizableInternalDialog x:Name="aboutDialog" Grid.Row="0" Grid.RowSpan="2"
+                                           Foreground="White" TitleContent="{x:Static properties:Strings.AboutApp}"
+                                           TitleAreaBackground="#FF101010" AnswerAreaBackground="#FF2F2F2F" ContentBackground="#FF3F3F3F"
+                                           Visibility="{Binding AboutBoxVisibility}"
+                                           FocusParent="{Binding ElementName=mainGrid}">
+            <id:MovableResizableInternalDialog.CloseButtonStyle>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="Background" Value="#00000000" />
+                    <Setter Property="BorderBrush" Value="#00000000" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Content" Value="{StaticResource CloseX}" />
+                </Style>
+            </id:MovableResizableInternalDialog.CloseButtonStyle>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Width="128" Height="128" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality"
+                       Source="pack://application:,,,/Images/Icon128x128.png" />
+                <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <TextBlock TextWrapping="Wrap" Style="{StaticResource DarkThemeTextBlockStyle}">
+                        <Run Text="{x:Static properties:Strings.AboutAppMessage}" />
+                        <LineBreak /><LineBreak />
+                        <Italic>
+                            <Run Text="{x:Static properties:Strings.Version}" />
+                            <Run Text="{Binding Version, Mode=OneWay}" />
+                        </Italic>
+                    </TextBlock>
+                </ScrollViewer>
+            </Grid>
+        </id:MovableResizableInternalDialog>
+        <id:MessageBoxInternalDialog x:Name="mbDialog" Foreground="White" Grid.Row="0" Grid.RowSpan="2"
+                                     MessageBoxBackground="#FF2F2F2F" TitleAreaBackground="#FF101010" ButtonAreaBackground="#FF2F2F2F"
+                                     Visibility="{Binding MessageBoxViewModel.MessageBoxVisibility}" Message="{Binding MessageBoxViewModel.MessageBoxMessage}"
+                                     Title="{Binding MessageBoxViewModel.MessageBoxTitle}" MessageBoxImage="{Binding MessageBoxViewModel.MessageBoxImage}"
+                                     Result="{Binding MessageBoxViewModel.MessageBoxResult, Mode=TwoWay}" IsModal="{Binding MessageBoxViewModel.MessageBoxIsModal}"
+                                     MessageBoxButton="{Binding MessageBoxViewModel.MessageBoxButton}"
+                                     FocusParent="{Binding ElementName=mainGrid}"
+                                     ButtonTextCancel="{x:Static properties:Strings.Cancel}" ButtonTextNo="{x:Static properties:Strings.No}"
+                                     ButtonTextOk="{x:Static properties:Strings.OK}" ButtonTextYes="{x:Static properties:Strings.Yes}">
+            <id:MessageBoxInternalDialog.CloseButtonStyle>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Background" Value="#00000000" />
+                    <Setter Property="BorderBrush" Value="#00000000" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Content" Value="{StaticResource CloseX}" />
+                </Style>
+            </id:MessageBoxInternalDialog.CloseButtonStyle>
+            <id:MessageBoxInternalDialog.ButtonStyle>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="MinWidth" Value="50" />
+                </Style>
+            </id:MessageBoxInternalDialog.ButtonStyle>
+        </id:MessageBoxInternalDialog>
     </Grid>
 </Window>

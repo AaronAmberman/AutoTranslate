@@ -49,6 +49,7 @@ namespace AutoTranslate
 
             MainWindowViewModel viewModel = new MainWindowViewModel
             {
+                CurrentCulture = Properties.Settings.Default.Culture,
                 DataNeededVisibility = Visibility.Visible, // show data needed control right away
                 MessageBoxViewModel = new MessageBoxViewModel(),
                 SettingsViewModel = new SettingsViewModel(),

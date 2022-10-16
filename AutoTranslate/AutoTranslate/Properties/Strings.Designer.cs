@@ -70,6 +70,24 @@ namespace AutoTranslate.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About Auto Translate.
+        /// </summary>
+        public static string AboutApp {
+            get {
+                return ResourceManager.GetString("AboutApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Translate helps assist in auto translating string resx (.NET) or ts (Qt C++) resource files for translations in .NET or Qt C++ applications. Using LibreTranslate or AWS Translate (other tranlsation providers will be added in the future) it attempts to auto translate between languages (English to Spanish, German to French, etc.). .
+        /// </summary>
+        public static string AboutAppMessage {
+            get {
+                return ResourceManager.GetString("AboutAppMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
         public static string Browse {
@@ -79,11 +97,29 @@ namespace AutoTranslate.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open File.
+        ///   Looks up a localized string similar to Open Resource File.
         /// </summary>
         public static string BrowseTitle {
             get {
                 return ResourceManager.GetString("BrowseTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current culture:.
+        /// </summary>
+        public static string CurrentCulture {
+            get {
+                return ResourceManager.GetString("CurrentCulture", resourceCulture);
             }
         }
         
@@ -97,7 +133,52 @@ namespace AutoTranslate.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resource file.
+        ///   Looks up a localized string similar to FAILED TRANSLATION.
+        /// </summary>
+        public static string FailedTranslation {
+            get {
+                return ResourceManager.GetString("FailedTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Referenced file.
+        /// </summary>
+        public static string ReferenecedFile {
+            get {
+                return ResourceManager.GetString("ReferenecedFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resource resx or ts file.
         /// </summary>
         public static string ResourceFile {
             get {
@@ -115,11 +196,47 @@ namespace AutoTranslate.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Translate.
+        /// </summary>
+        public static string Translate {
+            get {
+                return ResourceManager.GetString("Translate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto Translate.
         /// </summary>
         public static string WindowTitle {
             get {
                 return ResourceManager.GetString("WindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

@@ -35,6 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWSSDK.Translate" Version="3.7.6.7" />
+    <PackageReference Include="ResXResourceReader.NetStandard" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="WPF.CustomControls">
       <HintPath>..\dependencies\WPF.CustomControls\WPF.CustomControls.dll</HintPath>
     </Reference>
@@ -44,6 +49,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Strings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -66,6 +76,13 @@
     <Resource Include="Images\Icon32x32.png" />
     <Resource Include="Images\Icon48x48.png" />
     <Resource Include="Images\Icon64x64.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using AutoTranslate.ViewModels;
+﻿using AutoTranslate.Services;
+using AutoTranslate.ViewModels;
 
 namespace AutoTranslate
 {
@@ -28,6 +29,8 @@ namespace AutoTranslate
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
         public Logger Logger { get; set; }
+
+        public ITranslationService TranslationService { get; set; }
 
         #endregion
 

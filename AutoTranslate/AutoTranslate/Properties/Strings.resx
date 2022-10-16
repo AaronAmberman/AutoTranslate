@@ -120,22 +120,61 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="AboutApp" xml:space="preserve">
+    <value>About Auto Translate</value>
+  </data>
+  <data name="AboutAppMessage" xml:space="preserve">
+    <value>Auto Translate helps assist in auto translating string resx (.NET) or ts (Qt C++) resource files for translations in .NET or Qt C++ applications. Using LibreTranslate or AWS Translate (other tranlsation providers will be added in the future) it attempts to auto translate between languages (English to Spanish, German to French, etc.). </value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Browse</value>
   </data>
   <data name="BrowseTitle" xml:space="preserve">
-    <value>Open File</value>
+    <value>Open Resource File</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CurrentCulture" xml:space="preserve">
+    <value>Current culture:</value>
   </data>
   <data name="DataTitle" xml:space="preserve">
     <value>Select Resource File</value>
   </data>
+  <data name="FailedTranslation" xml:space="preserve">
+    <value>FAILED TRANSLATION</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ReferenecedFile" xml:space="preserve">
+    <value>Referenced file</value>
+  </data>
   <data name="ResourceFile" xml:space="preserve">
-    <value>Resource file</value>
+    <value>Resource resx or ts file</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="Translate" xml:space="preserve">
+    <value>Translate</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
   <data name="WindowTitle" xml:space="preserve">
     <value>Auto Translate</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>
