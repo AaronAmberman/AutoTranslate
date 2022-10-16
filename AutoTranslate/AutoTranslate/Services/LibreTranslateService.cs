@@ -10,6 +10,13 @@ using System.Threading.Tasks;
 
 namespace AutoTranslate.Services
 {
+    /*
+     * Maybe just use CTranslate2 (https://github.com/OpenNMT/CTranslate2) and build something 
+     * like Desktop Transator (https://github.com/ymoslem/DesktopTranslator)
+     * or maybe even the GUI for Argos (https://github.com/argosopentech/argos-translate-gui) using 
+     * Argos (https://github.com/argosopentech/argos-translate)
+     */
+
     /// <summary>A simple wrapper for Libre Translate calls.</summary>
     internal class LibreTranslateService : ITranslationService
     {
