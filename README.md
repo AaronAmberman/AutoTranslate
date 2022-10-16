@@ -14,7 +14,7 @@ This application aims to keep is self free and MIT licensed. The various transla
 
 [Argos Translate](https://github.com/argosopentech/argos-translate) (offline, unlimited)
 
-[LibreTranslate GitHub](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/) (offline (self hosted) and online, unlimited and limited based on location or self hosting)
+[LibreTranslate](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/) (offline (self hosted) and online, unlimited and limited based on location or self hosting)
 
 [AWS Translate](https://aws.amazon.com/translate/) but you will need an AWS account (online) (limited)
 
