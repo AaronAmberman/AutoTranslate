@@ -10,9 +10,9 @@ This application aims to use several translation providers to provide the easies
 This application aims to keep is self free and MIT licensed. The various translations providers will need credentials so we recommend deploying your own LibreTranslate instance and connecting to that for free.
 
 ## Translation Providers
-[CTranslate2](https://github.com/OpenNMT/CTranslate2) with trained models (looking to use M2M-100) (offline translation, unlimited)
+[CTranslate2](https://github.com/OpenNMT/CTranslate2) with trained models (looking to use M2M-100) (offline, unlimited)
 
-[Argos Translate](https://github.com/argosopentech/argos-translate) (offline translation, unlimited)
+[Argos Translate](https://github.com/argosopentech/argos-translate) (offline, unlimited)
 
 [LibreTranslate GitHub](https://github.com/LibreTranslate/LibreTranslate), website can be found [here](https://libretranslate.com/) (offline (self hosted) and online, unlimited and limited based on location or self hosting)
 
