@@ -1,7 +1,7 @@
 # AutoTranslate
 ***Work in progress...very early alpha.***
 
-Automatically translate string resources files into other languages.
+Automatically translate string resources files from one spoken language to another.
 
 ## The Power
 This application aims to use several translation providers to provide the easiest experience possible.
