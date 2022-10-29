@@ -1,7 +1,7 @@
 # AutoTranslate
 ***Work in progress...very early alpha.***
 
-Automatically translate string resources files from one spoken language to another.
+Automatically translate string resources files from one spoken language to another. Works with .NET string resource files (*.resx) or Qt translation files (*.ts).
 
 ## The Power
 This application aims to use several translation providers to provide the easiest experience possible.
