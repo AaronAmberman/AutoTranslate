@@ -11,4 +11,4 @@ This application will aim to use the M2M 100 translation model. This way transla
 ## Translation Providers
 [CTranslate2](https://github.com/OpenNMT/CTranslate2) with trained models (looking to use M2M-100) (offline, unlimited)
 
-Using ML.NET to try to interpret m2m 100 data. May have to try to use IronPython or even just the python language.
+Using ML.NET to try to interpret m2m 100 data. May have to try to use IronPython or even just the python language. Who knows I don't know much about machine learning, trained models, inference or transformers.
