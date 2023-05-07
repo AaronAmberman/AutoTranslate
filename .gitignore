@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/m2m100_ct2_12b.zip
+/m2m100_ct2_418m.zip
